@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: ItemCount(name: 'FunnyBoss'),
+      ),
+    );
+  }
+}
+
+class ItemCount extends StatefulWidget {
+  final String name;
+  ItemCount({this.name});
+
+  @override
+  _ItemCountState createState() => _ItemCountState();
+}
+
+class _ItemCountState extends State<ItemCount> {
+  int count = 0;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+         count++; 
+        });
+      },
+      child: Text('${widget.name}  $count'),
+    );
+  }
+}
